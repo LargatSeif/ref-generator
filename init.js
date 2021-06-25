@@ -1,13 +1,26 @@
 const fs = require("fs");
-if (fs.existsSync("./output")) {
-  console.log("Output directory exists!");
+if (fs.existsSync("./output/agencies")) {
+  console.log("Output agencies directory exists!");
 } else {
-  console.log("Output directory not found.");
-  fs.mkdir("./output", function (err) {
+  console.log("Output agencies directory not found.");
+  fs.mkdir("./output/agencies", function (err) {
     if (err) {
       console.log(err);
     } else {
-      console.log("Output directory successfully created.");
+      console.log("Output agencies directory successfully created.");
+    }
+  });
+}
+
+if (fs.existsSync("./output/companies")) {
+  console.log("Output companies directory exists!");
+} else {
+  console.log("Output companies directory not found.");
+  fs.mkdir("./output/companies", function (err) {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log("Output companies directory successfully created.");
     }
   });
 }

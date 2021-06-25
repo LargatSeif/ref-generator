@@ -1,4 +1,18 @@
 const fs = require("fs");
+
+if (fs.existsSync("./output")) {
+  console.log("output directory exists!");
+} else {
+  console.log("Output directory not found.");
+  fs.mkdir("./output", function (err) {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log("Output directory successfully created.");
+    }
+  });
+}
+
 if (fs.existsSync("./output/agencies")) {
   console.log("Output agencies directory exists!");
 } else {
@@ -37,3 +51,4 @@ if (fs.existsSync("./input")) {
     }
   });
 }
+

@@ -3,6 +3,7 @@ const csvToJson = require("csvtojson");
 var argv = require("minimist")(process.argv.slice(2));
 var env = [];
 var type = argv.type || 'companies';
+var attr = argv.attr || 'name';
 
 switch (argv.env) {
   case "all":
@@ -32,7 +33,7 @@ env.forEach((e) => {
     })
       .fromFile(file_path)
       .then((items) => {
-        const result = Object.entries(groupBy("name")(items)).map(
+        const result = Object.entries(groupBy(attr)(items)).map(
           ([key, value]) => ({ name: key, children: value })
         );
   
